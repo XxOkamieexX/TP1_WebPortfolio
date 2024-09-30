@@ -24,6 +24,10 @@
         min-height: 100vh;
     }
 
+    hr.dotted {
+        border-top: 3px dotted black;
+    }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -98,7 +102,7 @@
         font-weight: 400;
         line-height: normal;
         display: flex;
-        width: 180px;
+        width: 230px;
         height: 64px;
         flex-direction: column;
         justify-content: center;
@@ -170,6 +174,7 @@
     #ascii-art-1{
         width: 56px;
         height: 153px;
+        text-align: center;
     }
 
     #ascii-art-2{

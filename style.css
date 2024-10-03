@@ -73,8 +73,10 @@
     h3{
         font-size: 45px;
     }
-    
 
+    h4{
+        font-size: 24px;
+    }
 
     nav {
        display: flex;

@@ -16,46 +16,52 @@
                         <li><a href="a-propos.html" class="link">À propos.</a></li>
                         <li><a href="projets.html" class="link">Projets.</a></li>
                         <li><a href="contact.html" class="link">Contact.</a></li>
+                        <li><a href="merci.html" class= "link"></a></li>
                     </ul>
                 </nav>
                 <hr class="dotted">
             </header>
-            <main>
-                <div class="titredepage"> 
+            <main class="content-contact">     
                 <h2>Contactez-nous</h2>
-                </div>
-                <div class="rangdesoustitre"> 
-                <h3> Formulaire de contact</h3>
-                <h3> Par téléphone </h3>
-                <h3> Par chat </h3>
-                </div>                
-            </main>
-            <section class="content-contact">
-            <div class="rang1"> 
-             <label> Votre prénom </label>
-             <label> Votre nom </label>
-            </div>
-             <br>
-             <input type="text">
-             <input type="text">
-             <br>
-             
-             <label> Votre adresse courriel </label>
-             <label> Votre téléphone </label>
-             <br>
-            <input type="text">
-            <input type="text">
-            <br>
-             
-            <label> Écrivez un message personnalisé (facultatif) </label>
-            <br>
-            <div class="textarea"> 
-            <textarea name="commentaire" id="commentaires" > </textarea>
-            </div>
-            <br>
-            <button type="button"> Envoyer </button>
-            </section>
-            <footer></footer>
-        </div>
+                <section>
+                    <h3> Formulaire de contact</h3>
+                    <form>
+                        <div> 
+                            <div>
+                                <label> Votre prénom : </label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <label> Votre nom </label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div> 
+                            <div class="courriel">
+                                <label> Votre adresse courriel </label>
+                                <input type="text">
+                            </div>
+                            <div class="telephone">
+                                <label> Votre téléphone </label>
+                                <input type="number">
+                            </div>
+                        </div>
+                        <div>
+                            <label> Écrivez un message personnalisé (facultatif) </label>
+                            <textarea name="commentaire" id="commentaires" > </textarea>
+                        </div>  
+                        <a class="button" href="merci.html">envoyer</a> 
+                        
+                                
+                    </form>
+                </section>
+                <section>
+                    <h3> Par téléphone </h3>
+                </section>
+                <section>
+                    <h3> Par chat </h3>
+                </section>
+            </main>  
+        <footer></footer>
     </body>
 </html>

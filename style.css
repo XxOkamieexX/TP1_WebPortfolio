@@ -207,43 +207,38 @@
         margin-top: auto;
     }
 
-.rangdesoustitre{ 
-    display: flex;
-    justify-content: space-around;
-}
+    .rangdesoustitre{ 
+        display: flex;
+        justify-content: space-around;
+    }
 
-.titredepage{
-    display: flex;
-    text-align: center;
-    
-}
+    .titredepage{
+        display: flex;
+        text-align: center;
+        
+    }
 
-.content-contact{
-    columns: 1;
-    margin-left: 90px;
-    margin-bottom: 30px;
-    font-family: 'Jtmekito', monospace;   
-}
+    .noms{
+        display: flex;
+        justify-content: space-around;
+    }
 
-.merci{
-    display: flex;
-    text-align: center;
-}
-
-.noms{
-    display: flex;
-    justify-content: space-around;
-}
-
-.listeC{
-    font-family: 'Jtmekito', monospace;
-    text-align: left;
-    columns: 2;
-    margin-left: 90px;
-    margin-bottom: 380px;
-}
+    .content-projet{
+        columns: 2;
+        margin-left: 90px;
+        margin-bottom: 30px;
+        -webkit-column-break-inside: avoid;
+    }
 
 
+    .column{
+        height: 500px;
+        line-height: 50px;
+    }
 
+    .content-merci{
+        height: 100%;
+        text-align: center;
+    }
 }
 

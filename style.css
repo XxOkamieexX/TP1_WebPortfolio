@@ -226,7 +226,7 @@
     .content-projet{
         columns: 2;
         margin-left: 90px;
-        margin-bottom: 30px;
+        margin-bottom: 90px;
         -webkit-column-break-inside: avoid;
     }
 
@@ -239,6 +239,25 @@
     .content-merci{
         height: 100%;
         text-align: center;
+        margin-bottom: 400px;
+        margin-top: 200px;
     }
+
+    .titre-form{
+        display: flex;
+        justify-content: left;
+    }
+
+    .titre-contact{
+        text-align: center;
+    }
+
+    .content-contact{
+        margin-left: 100px;
+        margin-bottom: 300px;
+        
+    }
+
+    
 }
 

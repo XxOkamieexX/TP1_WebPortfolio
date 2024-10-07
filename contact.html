@@ -18,49 +18,34 @@
                         <li><a href="contact.html" class="link">Contact.</a></li>
                         <li><a href="merci.html" class= "link"></a></li>
                     </ul>
-                </nav>
-                <hr class="dotted">
+                    </nav>              
             </header>
-            <main class="content-contact">     
-                <h2>Contactez-nous</h2>
+            <main class="content-contact">
+                            <hr class="dotted">
+                            <div class="titre-contact">
+                            <h2>Contactez-nous</h2>
+                            </div>
                 <section>
-                    <h3> Formulaire de contact</h3>
-                    <form>
-                        <div> 
-                            <div>
-                                <label> Votre prénom : </label>
-                                <input type="text">
-                            </div>
-                            <div>
-                                <label> Votre nom </label>
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div> 
-                            <div class="courriel">
-                                <label> Votre adresse courriel </label>
-                                <input type="text">
-                            </div>
-                            <div class="telephone">
-                                <label> Votre téléphone </label>
-                                <input type="number">
-                            </div>
-                        </div>
-                        <div>
-                            <label> Écrivez un message personnalisé (facultatif) </label>
-                            <textarea name="commentaire" id="commentaires" > </textarea>
-                        </div>  
-                        <a class="button" href="merci.html">envoyer</a> 
-                        
-                                
+                    <h3 class="titre-form">Formulaire de contact</h3>
+                    <form id="Form">
+                            <label for="prenom"> prenom </label><br>
+                            <input type="text" id="prenom" name="prenom" required><br><br>
+                            <label for="name">Nom </label><br>
+                            <input type="text" id="name" name="name" required><br><br>
+                            <label for="email">Email </label><br>
+                            <input type="email" id="email" name="email" required><br><br>
+                            <label for="message">Message personnalisé </label><br>
+                            <textarea style="width: 300px; height: 150px;"></textarea>
+                            <br>
+                            <button onclick="window.location.href='merci.html';"> Envoyer </button>                             
                     </form>
                 </section>
                 <section>
-                    <h3> Par téléphone </h3>
-                </section>
-                <section>
-                    <h3> Par chat </h3>
-                </section>
+                    <h3> Par téléphone ou chat </h3>
+                    <p> Besoin de réponse à vos questions ? <br> 
+                        N'hésitez surtout pas à poser à nous joindre au 514-XXX-XXXX </p>
+                    <p> Notre équipe est active en tout temps pour répondre à vos questions 24/7 </p> 
+                </section>                    
             </main>  
         <footer></footer>
     </body>

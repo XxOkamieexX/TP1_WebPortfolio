@@ -1,177 +1,17 @@
-<<<<<<< Updated upstream
 /* Cela est utilisé pour télécharger la police de font externe */
 @font-face {
     font-family: 'Jtmekito';
     src: url("polices/JtmekitoRegular-wowy3.otf") format("opentype");
-=======
-@font-face {
-    font-family: 'Jtmekito';
-    src: url("JtmekitoRegular-wowy3.otf") format("opentype");
->>>>>>> Stashed changes
 }
-
+ 
 @font-face {
     font-family: 'Several Mono';
-<<<<<<< Updated upstream
     src: url("polices/SeveralMono.otf");
 }
-
+ 
 /* Ici se trouve deux fonts utilisés dont Several-Mono et Jtmekito */
-            .jtmekito {
-                font-family: 'Jtmekito', monospace;
-            }
-
-            .several-mono{
-                font-family: 'Several Mono', monospace;
-            }
+s
 /* Permet de changer les balises de CSS intérieur */
-@media screen and (max-width: 1920px){
-                body {
-                    margin: 0;
-                    padding: 0;
-                    background-color: white;
-                    min-height: 100vh;
-                }
-
-        /* Ceci est le style de la ligne pointillée */
-                    hr.dotted {
-                        border-top: 3px dotted black;
-                    }
-
-            .container {
-                display: flex;
-                flex-direction: column;
-                padding: 0%;
-                flex-grow: 1; 
-            }
-            /* bannière */
-            .banner{
-                display: flex;
-                flex-direction: row;
-                justify-content: end;
-            }
-    /* Ceci sont les titres de grandeur */
-        h1{
-            display: flex;
-            width: 720px;
-            height: 256px;
-            flex-direction: column;
-            justify-content: flex-end;
-            flex-shrink: 0;
-            text-align: right;
-            font-family: 'Several Mono';
-            font-size: 64px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
-
-        h2{
-            display: flex;
-            width: auto;
-            height: 128px;
-            flex-direction: column;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 64px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            margin: auto;
-        }
-
-        h3{
-            font-size: 45px;
-        }
-
-        h4{
-            font-size: 24px;
-        }
-
-        /* Ceci est le style de la navigation */
-        nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        }
-        
-        nav ul {
-            display: flex;
-            flex-direction: row;
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        nav ul li {
-            margin: 10px;
-        }
-    
-        /* Ceci est l'animation contenue dans les liens de navigation */
-        .link{
-            text-decoration: none;
-            color: black;
-            text-align: center;
-            font-family: "Several Mono";
-            font-size: 36px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            display: flex;
-            width: 230px;
-            height: 64px;
-            flex-direction: column;
-            justify-content: center;
-            letter-spacing: -3.6px;
-            flex-shrink: 0;
-        }
-        
-        .link:hover{
-            letter-spacing: 2.5px;
-        }
-
-        .link:active{
-            text-decoration: underline 0.5px;
-        }
-        /* Ceci est le contenu de la page 404 */
-        .content-404 p{
-            text-align: center;
-            font-family: "JT Mekito";
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
-        .content-404{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin-top: -10%;
-        }
-        #title-404{
-            flex-shrink: 0;
-            text-align: center;
-            font-family: "Several Mono";
-            font-size: 198px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            margin-bottom: -5%;
-        }
-    /* le petit bonhomme dans la page 404 */
-=======
-    src: url("SeveralMono.otf");
-}
-
-.jtmekito {
-    font-family: 'Jtmekito', monospace;
-}
-
-.several-mono{
-    font-family: 'Several Mono', monospace;
-}
-
 @media screen and (max-width: 1920px){
     body {
         margin: 0;
@@ -180,6 +20,7 @@
         min-height: 100vh;
     }
 
+    /* Ceci est le style de la ligne pointillée */
     hr.dotted {
         border-top: 3px dotted black;
     }
@@ -188,15 +29,17 @@
         display: flex;
         flex-direction: column;
         padding: 0%;
-        flex-grow: 1; 
+        flex-grow: 1;
     }
-    
+
+    /* bannière */
     .banner{
         display: flex;
         flex-direction: row;
         justify-content: end;
     }
-    
+
+    /* Ceci sont les titres de grandeur */
     h1{
         display: flex;
         width: 720px;
@@ -229,14 +72,17 @@
     h3{
         font-size: 45px;
     }
-    
 
+    h4{
+        font-size: 24px;
+    }
 
+    /* Ceci est le style de la navigation */
     nav {
-       display: flex;
-       flex-direction: row;
-       justify-content: space-between;
-       align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     }
     
     nav ul {
@@ -249,7 +95,8 @@
     nav ul li {
         margin: 10px;
     }
-    
+
+    /* Ceci est l'animation contenue dans les liens de navigation */
     .link{
         text-decoration: none;
         color: black;
@@ -276,6 +123,15 @@
         text-decoration: underline 0.5px;
     }
 
+    /* Ceci est le contenu de la page 404 */
+    .content-404 p{
+        text-align: center;
+        font-family: "JT Mekito";
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
     .content-404{
         display: flex;
         flex-direction: column;
@@ -283,14 +139,6 @@
         align-items: center;
         height: 100vh;
         margin-top: -10%;
-    }
-
-    .content-404 p{
-        text-align: center;
-        font-family: "JT Mekito";
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
     }
 
     #title-404{
@@ -304,7 +152,7 @@
         margin-bottom: -5%;
     }
 
->>>>>>> Stashed changes
+    /* le petit bonhomme dans la page 404 */
     .little-guy{
         display: flex;
         width: 360px;
@@ -317,135 +165,27 @@
         font-weight: 400;
         line-height: normal;
     }
-<<<<<<< Updated upstream
-    /* les petits dessins dans la page à propos */
-=======
 
->>>>>>> Stashed changes
+    /* les petits dessins dans la page à propos */
     .little-art{
         -moz-column-count: 2;
         column-count: 2;
         width: 30em;
     }
-<<<<<<< Updated upstream
-        /*Ceci est le style du contenu à propos */
-        .content-a-propos{
-            columns: 2;
-            margin-left: 90px;
-            margin-bottom: 30px;
-        }
-        
-        /* Ceci est le footer donc tout en bas de la page */
-        footer{
-            display: flex;
-            background-image: url("imagesvideos/footer.png"); 
-            justify-content: space-evenly;
-            align-items: center;
-            text-align: center;
-            bottom: 0;
-            width: 100%;
-            height: 100px;
-            margin-top: auto;
-        }
 
-        /* Ceci est le style du contenu de la page projet */
-
-        .content-projet{
-            columns: 2;
-            margin-left: 90px;
-            margin-bottom: 90px;
-            -webkit-column-break-inside: avoid;
-        }
-
-        /* colonnes */
-        .column{
-            height: 500px;
-            line-height: 50px;
-        }
-
-        /* Ceci est le style du contenu de la page merci */
-        .content-merci{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-bottom: 300px;
-            margin-top: 150px;
-            padding-top: 5%;
-        }
-
-        .titre-merci{
-            font-size: 125px;
-            margin-bottom: 50px;
-        }
-
-        /* Ceci est le style du contenu de la page contact */
-
-            .content-contact{
-                columns: 2;
-                -webkit-column-break-inside: avoid;
-                margin-left: 100px;
-                margin-top: 50px;
-                margin-bottom: 300px;
-            }
-
-            .titre-form{
-                display: flex;
-                justify-content: left;
-            }
-
-            .titre-contact{
-                margin-left: 90px;
-            }
-
-            .font-form{
-                font-family: "JT Mekito";
-            }
-
-            .contenu-droite{
-                font-family: "JT Mekito";
-                padding-top: 20%;
-                height: 200px;
-            }
-                /* Ceci est le style de la petite video dans la page projet */
-                .video{
-                    margin-left: 50px;
-                }
-        }
-=======
-
+    /*Ceci est le style du contenu à propos */
     .content-a-propos{
         columns: 2;
         margin-left: 90px;
         margin-bottom: 30px;
     }
-
-    #ascii-art-1{
-        width: 56px;
-        height: 153px;
-        text-align: center;
-    }
-
-    #ascii-art-2{
-        width: 68px;
-        height: 152px;
-    }
-
-    #ascii-art-3{
-        width: 57px;
-        height: 153px;
-    }
-
-    #ascii-art-4{
-        width: 70px;
-        height: 97px;
-    }
-
-    footer {
-        background-image: url("bande-@.png");
+    
+    /* Ceci est le footer donc tout en bas de la page */
+    footer{
         display: flex;
+        background-image: url("imagesvideos/footer.png");
         justify-content: space-evenly;
+        align-items: center;
         text-align: center;
         bottom: 0;
         width: 100%;
@@ -453,39 +193,69 @@
         margin-top: auto;
     }
 
-.rangdesoustitre{ 
-    display: flex;
-    justify-content: space-around;
+    /* Ceci est le style du contenu de la page projet */
+    .content-projet{
+        columns: 2;
+        margin-left: 90px;
+        margin-bottom: 90px;
+        -webkit-column-break-inside: avoid;
+    }
+
+    /* colonnes */
+    .column{
+        height: 500px;
+        line-height: 50px;
+    }
+
+    /* Ceci est le style du contenu de la page merci */
+    .content-merci{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 300px;
+        margin-top: 150px;
+        padding-top: 5%;
+    }
+
+    .titre-merci{
+        font-size: 125px;
+        margin-bottom: 50px;
+    }
+
+    /* Ceci est le style du contenu de la page contact */
+    .content-contact{
+        columns: 2;
+        -webkit-column-break-inside: avoid;
+        margin-left: 100px;
+        margin-top: 50px;
+        margin-bottom: 300px;
+    }
+
+    .titre-form{
+        display: flex;
+        justify-content: left;
+    }
+
+    .titre-contact{
+        margin-left: 90px;
+    }
+
+    .font-form{
+        font-family: "JT Mekito";
+    }
+
+    .contenu-droite{
+        font-family: "JT Mekito";
+        padding-top: 20%;
+        height: 200px;
+    }
+
+    /* Ceci est le style de la petite video dans la page projet */
+    .video{
+        margin-left: 50px;
+    }
 }
 
-.titredepage{
-    display: flex;
-    text-align: center;
-    
-}
-
-.content-contact{
-    columns: 1;
-    margin-left: 90px;
-    margin-bottom: 30px;
-    font-family: 'Jtmekito', monospace;   
-}
-
-.merci{
-    display: flex;
-    text-align: center;
-}
-
-.noms{
-    display: flex;
-    justify-content: space-around;
-}
-
-.listeC{
-    font-family: 'Jtmekito', monospace;
-}
-
-}
-
->>>>>>> Stashed changes
 

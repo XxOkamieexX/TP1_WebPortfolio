@@ -10,7 +10,7 @@
 }
  
 /* Ici se trouve deux fonts utilisés dont Several-Mono et Jtmekito */
-s
+
 /* Permet de changer les balises de CSS intérieur */
 @media screen and (max-width: 1920px){
     body {
@@ -183,7 +183,7 @@ s
     /* Ceci est le footer donc tout en bas de la page */
     footer{
         display: flex;
-        background-image: url("imagesvideos/footer.png");
+        background-image: url("images/footer.png");
         justify-content: space-evenly;
         align-items: center;
         text-align: center;

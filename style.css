@@ -1,13 +1,13 @@
 /* Cela est utilisé pour télécharger la police de font externe */
-    @font-face {
-        font-family: 'Jtmekito';
-        src: url("JtmekitoRegular-wowy3.otf") format("opentype");
-    }
+@font-face {
+    font-family: 'Jtmekito';
+    src: url("polices/JtmekitoRegular-wowy3.otf") format("opentype");
+}
 
-    @font-face {
-        font-family: 'Several Mono';
-        src: url("SeveralMono.otf");
-    }
+@font-face {
+    font-family: 'Several Mono';
+    src: url("polices/SeveralMono.otf");
+}
 
 /* Ici se trouve deux fonts utilisés dont Several-Mono et Jtmekito */
             .jtmekito {
@@ -126,32 +126,32 @@
         .link:active{
             text-decoration: underline 0.5px;
         }
-            /* Ceci est le contenu de la page 404 */
-            .content-404 p{
-                text-align: center;
-                font-family: "JT Mekito";
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-            }
-            .content-404{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin-top: -10%;
-            }
-            #title-404{
-                flex-shrink: 0;
-                text-align: center;
-                font-family: "Several Mono";
-                font-size: 198px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                margin-bottom: -5%;
-            }
+        /* Ceci est le contenu de la page 404 */
+        .content-404 p{
+            text-align: center;
+            font-family: "JT Mekito";
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        .content-404{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: -10%;
+        }
+        #title-404{
+            flex-shrink: 0;
+            text-align: center;
+            font-family: "Several Mono";
+            font-size: 198px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-bottom: -5%;
+        }
     /* le petit bonhomme dans la page 404 */
     .little-guy{
         display: flex;
@@ -181,7 +181,7 @@
         /* Ceci est le footer donc tout en bas de la page */
         footer{
             display: flex;
-            background-image: url("footer.png"); 
+            background-image: url("imagesvideos/footer.png"); 
             justify-content: space-evenly;
             align-items: center;
             text-align: center;

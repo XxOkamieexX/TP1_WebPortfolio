@@ -1,18 +1,26 @@
 /* Cela est utilisé pour télécharger la police de font externe */
 @font-face {
     font-family: 'Jtmekito';
-    src: url("polices/JtmekitoRegular-wowy3.otf") format("opentype");
+    src: url("JtmekitoRegular-wowy3.otf") format("opentype");
 }
  
 @font-face {
     font-family: 'Several Mono';
-    src: url("polices/SeveralMono.otf");
+    src: url("SeveralMono.otf");
 }
  
 /* Ici se trouve deux fonts utilisés dont Several-Mono et Jtmekito */
 
 /* Permet de changer les balises de CSS intérieur */
 @media screen and (max-width: 1920px){
+    .several-mono{
+        font-family: 'Several Mono';
+    }
+
+    .jtmekito{
+        font-family: 'Jtmekito';
+    }
+
     body {
         margin: 0;
         padding: 0;
@@ -56,6 +64,7 @@
     }
 
     h2{
+        font-family: "Several Mono";
         display: flex;
         width: auto;
         height: 128px;
@@ -75,6 +84,11 @@
 
     h4{
         font-size: 24px;
+        font-family: 'Jtmekito';
+    }
+
+    p{
+        font-family: 'Jtmekito';
     }
 
     /* Ceci est le style de la navigation */
@@ -199,6 +213,7 @@
         margin-left: 90px;
         margin-bottom: 90px;
         -webkit-column-break-inside: avoid;
+        font-family: 'Jtmekito';
     }
 
     /* colonnes */
@@ -236,10 +251,12 @@
     .titre-form{
         display: flex;
         justify-content: left;
+        font-family: "Several Mono";
     }
 
     .titre-contact{
         margin-left: 90px;
+        font-family: "Several Mono";
     }
 
     .font-form{

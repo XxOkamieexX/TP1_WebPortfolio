@@ -1,61 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>contact</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="several-mono">
-        <div class="container">
-            <header>
-                <!-- Ceci est la navigation -->
-                <nav>
-                    <div><a href="page404.html" class="link">Logo.</a></div>
-                    <ul>
-                        <li><a href="index.html" class="link">Accueil.</a></li>
-                        <li><a href="a-propos.html" class="link">À propos.</a></li>
-                        <li><a href="projets.html" class="link">Projets.</a></li>
-                        <li><a href="contact.html" class="link">Contact.</a></li>
-                    </ul>
-                </nav>
-                <hr class="dotted">           
-            </header>
-            <main>                   
-                <h2 class="titre-contact">Contactez-nous</h2>
-                <div class="content-contact">
-                    <!-- Ceci est le contenu du formulaire dans la colonne de gauche -->
-                    <section>
-                        <h3 class="titre-form">Formulaire de contact</h3>
-                        <form id="Form">
-                            <div class="font-form"> 
-                                <label for="prenom"> Prénom </label><br>
-                                <input type="text" id="prenom" name="prenom" required><br><br>
-                                <label for="name"> Nom </label><br>
-                                <input type="text" id="name" name="name" required><br><br>
-                                <label for="email">E-mail </label><br>
-                                <input type="email" id="email" name="email" required><br><br>
-                                <label for="message">Message personnalisé (facultatif) </label><br>
-                                <textarea style="width: 300px; height: 150px;"></textarea>
-                                <br>
-                                <button onclick="window.location.href='merci.html';"> Envoyer </button>
-                            </div>                            
-                        </form>
-                    </section>
-                    <!-- Ceci est le contenu de la colonne de droite dans une section -->
-                    <section class="contenu-droite">
-                        <h3 class="several-mono"> Par téléphone ou chat </h3>
-                        <p> Besoin de réponse à vos questions ? <br> 
-                            N'hésitez surtout pas à nous joindre au: </p>
-                        <p>Charlotte Des Allier [2026918]: (t)438-505-6559</p>
-                        <p>Océane Côté [2166135]: (t)438-321-5107</p>
-                        <p> Notre équipe est active en tout temps pour répondre à vos questions 24/7 </p>
-                    </section>                   
-                </div> 
-            </main>  
-            <footer class="jtmekito">
-                <p>Tous les droit réservés @CocottePinotte</p>
-            </footer>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body class="several-mono">
+    <div class="container">
+      <header>
+        <!-- Ceci est la navigation -->
+        <nav>
+          <div><a href="page404.html" class="link">Logo.</a></div>
+          <ul>
+            <li><a href="index.html" class="link">Accueil.</a></li>
+            <li><a href="a-propos.html" class="link">À propos.</a></li>
+            <li><a href="projets.html" class="link">Projets.</a></li>
+            <li><a href="contact.html" class="link">Contact.</a></li>
+          </ul>
+        </nav>
+        <hr class="dotted" />
+      </header>
+      <main>
+        <h2 class="titre-contact">Contactez-nous</h2>
+        <div class="content-contact">
+          <!-- Ceci est le contenu du formulaire dans la colonne de gauche -->
+          <section>
+            <h3 class="titre-form">Formulaire de contact</h3>
+            <fieldset style="width: 500px">
+              <form id="Form">
+                <div class="font-form">
+                  <label for="prenom"> Prénom </label><br />
+                  <input
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    required
+                  /><br /><br />
+                  <span id="prenomError" class="error"></span>
+
+                  <label for="name"> Nom </label><br />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                  /><br /><br />
+                  <label for="email">E-mail </label><br />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                  /><br /><br />
+                  <label for="message">Message personnalisé (facultatif) </label
+                  ><br />
+                  <textarea style="width: 300px; height: 150px"></textarea>
+                  <br />
+                  <button onclick="window.location.href='merci.html';">
+                    Envoyer
+                  </button>
+                </div>
+              </form>
+            </fieldset>
+          </section>
+          <!-- Ceci est le contenu de la colonne de droite dans une section -->
+          <section class="contenu-droite">
+            <h3 class="several-mono">Par téléphone ou chat</h3>
+            <p>
+              Besoin de réponse à vos questions ? <br />
+              N'hésitez surtout pas à nous joindre au:
+            </p>
+            <p>Charlotte Des Allier [2026918]: (t)438-505-6559</p>
+            <p>Océane Côté [2166135]: (t)438-321-5107</p>
+            <p>
+              Notre équipe est active en tout temps pour répondre à vos
+              questions 24/7
+            </p>
+          </section>
         </div>
-    </body>
+      </main>
+      <footer class="jtmekito">
+        <p>Tous les droit réservés @CocottePinotte</p>
+      </footer>
+    </div>
+
+    <script>
+      const form = document.getElementById("Form");
+      const prenomInput = document.getElementById("prenom");
+      const prenomError = document.getElementById("prenomError");
+
+      if (nameInput.value.trim() === "") {
+        //empêche l'envoi du formulaire
+        event.preventDefault();
+
+        //afficher un message d'erreur
+        prenomError.textContent = "Veuillez saisir votre prénom";
+      }
+    </script>
+  </body>
 </html>

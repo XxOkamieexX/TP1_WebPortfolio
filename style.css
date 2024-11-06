@@ -21,6 +21,18 @@
         font-family: 'Jtmekito';
     }
 
+    .ascii{
+        color: black; 
+        background: white;
+        display:inline-block;
+        white-space: pre;
+        letter-spacing:0;
+        line-height:1.4;
+        font-size:12px;
+        border-width:0px;
+        border-style: solid;
+    }
+
     body {
         margin: 0;
         padding: 0;
@@ -207,8 +219,35 @@
         margin-top: auto;
     }
 
+    /*Ceci est le style pour le bouton d'inscription*/
+    .inscription-btn{
+        background-image: url("images/inscription.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-color: white;
+        border: dotted;
+        width: 102px;
+        height: 210px;
+        position: fixed;
+        margin-left: 20px;
+        bottom: 20px;
+    }
+
+    .inscription-container{
+        display: none;
+    }
+
+    .inscription-container input{
+        margin: 10px;
+    }
+
+    #myForm{
+        display: none;
+    }
+
     /* Ceci est le style du contenu de la page projet */
     .content-projet{
+        display: flex;
         columns: 2;
         margin-left: 90px;
         margin-bottom: 90px;
@@ -220,6 +259,7 @@
     .column{
         height: 500px;
         line-height: 50px;
+        flex-wrap: wrap;
     }
 
     /* Ceci est le style du contenu de la page merci */

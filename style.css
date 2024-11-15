@@ -364,7 +364,8 @@
         margin-left: 50px;
     }
 
-    .error{color: red; font-size: 0.8em; margin-top: 5px;}
+    .error { color: red; font-size: 0.8em; margin-top: 5px; }
+    .valid { color: green; font-size: 0.8em; margin-top: 5px; }
 }
 
 

@@ -74,35 +74,101 @@
             </div>
           </code>
         </div>
-        <button class="inscription-btn" onclick="openForm()"></button>
-        <div class="inscription-btn">
-          <div class="form-popup" id="myForm" style="display: none;">
-            <form class="inscription-container">
-              <label for="email">Courriel:</label>
-              <input type="email" placeholder="Écrire votre courriel" name="email" required>
-              <span id="erreurEmail"></span>
-              <label for="psw">Mot de passe:</label>
-              <input type="password" placeholder="Écrire votre mot de passe" name="psw" required>
-              <span id="erreurPSW"></span>
-              <button type="submit" class="btn">Envoyer</button>
-              <button type="button" class="btn-annule" onclick="closeForm()"></button>
-            </form>
-          </div>
-        </div>
+        <!--Bouton pour ouvrir le formulaire d'inscription-->
+        <button id="inscription-btn" onClick="openForm()"></button>
+        <!--Block qui contient le formulaire-->
+        <div id="form-container"></div>
       </main>
       <footer class="jtmekito">
         <p>Tous les droit réservés @CocottePinotte</p>
       </footer>
     </div>
     <script>
+      // Créer un formulaire d'inscription
       function openForm() {
-        console,log("Le formulaire d'inscription est ouvert")
-        document.getElementById("myForm").style.display = "block";
+        document.getElementById("inscription-btn").style.display = "none";
+        const formContainer = document.getElementById("form-container");
+        formContainer.innerHTML = `
+          <form id="inscription" class="jtmekito">
+            <div>
+              <label for="email">Courriel:</label>
+              <input type="email" placeholder="Écrire votre courriel" name="email" id="email">
+            </div>
+            <span id="erreurEmail"></span>
+            <div>
+              <label for="psw">Mot de passe:</label>
+              <input type="password" placeholder="Écrire votre mot de passe" name="psw" id="psw">
+              <input type="password" placeholder="Confirmer votre mot de passe" name="re-psw" id="re-psw">
+            </div>
+            <span id="erreurPSW"></span>
+            <div class="row-btn">
+              <button type="submit" class="submit-btn">Envoyer</button>
+              <button type="button" class="close-btn" onClick="closeForm()">Annuler</button>
+            </div>
+          </form>
+        `;
       }
 
-      function closeForm() {
-        document.getElementById("myForm").style.display = "none";
+      // Fermer le formulaire d'inscription
+      function closeForm() { 
+        const formContainer = document.getElementById('form-container');
+        formContainer.innerHTML = "";
+        document.getElementById("inscription-btn").style.display = "block";
       }
+
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const pswPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d@$!%*?&]{10,}$/;
+
+      document.getElementById("inscription").addEventListener("submit", function(event) {
+        // Champs d'erreur vide par défaut
+        document.getElementById('erreurEmail').textContent = '';
+        document.getElementById('erreurPSW').textContent = '';
+
+        let isValid = true;
+
+        //Valeur du champ courriel
+        const email = document.getElementById('email').value;
+        // Message d'erreur si le champ est vide
+        if (email.trim() === '') {
+          event.preventDefault();
+          document.getElementById('erreurEmail').textContent = "Le courriel est requis.";
+          isValid = false;
+        } 
+        // Message d'erreur  si le courriel ne correspond pas au patron
+        else if (!emailPattern.test(email)) {
+          event.preventDefault();
+          document.getElementById('erreurEmail').textContent = "Le courriel est invalide.";
+          isValid = false;
+        }
+
+        //Valeur du champ mot de passe
+        const password1 = document.getElementById('psw').value;
+        const password2 = document.getElementById('re-psw').value;
+        // Message d'erreur si le champ est vide
+        if (password1.trim() === '') {
+          event.preventDefault();
+          document.getElementById('erreurPSW').textContent = "Le mot de passe est requis.";
+          isValid = false;
+        } 
+        // Message d'erreur  si le courriel ne correspond pas au patron
+        else if (!pswPattern.test(password1)) {
+          event.preventDefault();
+          document.getElementById('erreurPSW').textContent = "Le mot de passe est invalide.";
+          isValid = false;
+        }
+        // Message d'erreur si les deux champs de mot de passe ne sont pas identiques
+        else if (password1 !== password2) {
+          event.preventDefault();
+          document.getElementById('erreurPSW').textContent = "Les mots de passe ne sont pas identiques";
+          isValid = false;
+        }
+
+        if  (isValid) {
+          // Si tout est valide, on envoie le formulaire
+          document.getElementById("inscription").submit();
+          alert("Le formulaire  a été envoyé avec succès.");
+        }
+      });
     </script>
   </body>
 </html>

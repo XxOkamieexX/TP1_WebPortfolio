@@ -220,7 +220,7 @@
     }
 
     /*Ceci est le style pour le bouton d'inscription*/
-    .inscription-btn{
+    #inscription-btn{
         background-image: url("images/inscription.png");
         background-repeat: no-repeat;
         background-position: 50%;
@@ -233,16 +233,66 @@
         bottom: 20px;
     }
 
-    .inscription-container{
-        display: none;
+    #inscription-btn:hover{
+        
     }
 
-    .inscription-container input{
-        margin: 10px;
+    #inscription{
+        background-color: white;
+        border: dotted;
+        width: 300px;
+        height: 300px;
+        position: fixed;
+        margin-left: 20px;
+        bottom: 20px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
-    #myForm{
-        display: none;
+    #inscription div{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #inscription label{
+        margin-bottom: 10px;
+        margin-right:  10px;
+    }
+
+    #inscription input{
+        margin-bottom: 5px;
+        width: 250px;
+        display: flex;
+        align-items: flex-start;
+        align-self: stretch;
+    }
+
+    #inscription button{
+        width: 70px;
+        height: 30px;
+        background-color: white;
+        border: dotted;
+    }
+
+    .submit-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
+
+    .close-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
+
+    .row-btn{
+        display: flex;
+        flex-direction: row;
     }
 
     /* Ceci est le style du contenu de la page projet */

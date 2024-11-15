@@ -84,91 +84,107 @@
       </footer>
     </div>
     <script>
-      // Créer un formulaire d'inscription
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const pswPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d@$!%*?&]{6,}$/;
+      //Créer un formulaire d'inscription
       function openForm() {
         document.getElementById("inscription-btn").style.display = "none";
         const formContainer = document.getElementById("form-container");
         formContainer.innerHTML = `
-          <form id="inscription" class="jtmekito">
-            <div>
-              <label for="email">Courriel:</label>
-              <input type="email" placeholder="Écrire votre courriel" name="email" id="email">
-            </div>
-            <span id="erreurEmail"></span>
-            <div>
-              <label for="psw">Mot de passe:</label>
-              <input type="password" placeholder="Écrire votre mot de passe" name="psw" id="psw">
-              <input type="password" placeholder="Confirmer votre mot de passe" name="re-psw" id="re-psw">
-            </div>
-            <span id="erreurPSW"></span>
-            <div class="row-btn">
-              <button type="submit" class="submit-btn">Envoyer</button>
-              <button type="button" class="close-btn" onClick="closeForm()">Annuler</button>
-            </div>
-          </form>
+            <form id="inscription" class="jtmekito"> 
+                <div>
+                    <label for="email">Courriel:</label>
+                    <input type="email" placeholder="Écrire votre courriel" name="email" id="email" style="width: 250px;">
+                    <span id="erreurEmail" style="color: red; font-size: 12px;"></span>
+                </div>
+                <div>
+                    <label for="psw">Mot de passe:</label>
+                    <input type="password" placeholder="Écrire votre mot de passe" name="psw" id="psw" style="width: 250px;">
+                    <input type="password" placeholder="Confirmer votre mot de passe" name="re-psw" id="re-psw" style="width: 250px;">
+                    <span id="erreurPSW" style="color: red; font-size: 12px;"></span>
+                </div>
+                <div class="row-checkbox">
+                  <input type="checkbox" id="show-password" onClick="showPassword()"> 
+                  <label for="show-password" style="font-size: 12px;">Afficher le mot de passe</label>
+                </div>
+                <div class="row-btn">
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                    <button type="button" class="close-btn" onClick="closeForm()">Annuler</button>
+                </div>
+            </form>
         `;
+      
+        document.getElementById("inscription").addEventListener("submit", function(event) {
+          // Champs d'erreur vide par défaut
+          document.getElementById('erreurEmail').textContent = '';
+          document.getElementById('erreurPSW').textContent = '';
+
+          let isValid = true;
+
+          // Valeur du champ courriel
+          const email = document.getElementById('email').value;
+          // Message d'erreur si le champ est vide
+          if (email.trim() === '') {
+              event.preventDefault();
+              document.getElementById('erreurEmail').textContent = "Le courriel est requis.";
+              isValid = false;
+          } 
+          // Message d'erreur  si le courriel ne correspond pas au patron
+          else if (!emailPattern.test(email)) {
+              event.preventDefault();
+              document.getElementById('erreurEmail').textContent = "Le courriel est invalide.";
+              isValid = false;
+          }
+
+          // Valeur du champ mot de passe
+          const password1 = document.getElementById('psw').value;
+          const password2 = document.getElementById('re-psw').value;
+          // Message d'erreur si le champ est vide
+          if (password1.trim() === '') {
+              event.preventDefault();
+              document.getElementById('erreurPSW').textContent = "Le mot de passe est requis.";
+              isValid = false;
+          }
+          // Message d'erreur si les deux champs de mot de passe ne sont pas identiques
+          else if (password1 !== password2) {
+              event.preventDefault();
+              document.getElementById('erreurPSW').textContent = "Les mots de passe ne sont pas identiques";
+              isValid = false;
+          }
+          // Message d'erreur  si le mot de passe ne correspond pas au patron
+          else if (!pswPattern.test(password1)) {
+              event.preventDefault();
+              document.getElementById('erreurPSW').textContent = "Votre mot de passe doit contenir au moins 6 caractères, une lettre majuscule, un chiffre et un caractère spécial parmi : ! @ # $ % ^ & *.";
+              isValid = false;
+          }
+
+          if (isValid) {
+              // Si tout est valide, on envoie le formulaire
+              alert("Le formulaire a été envoyé avec succès.");
+          }
+        });
       }
 
-      // Fermer le formulaire d'inscription
+      function showPassword() { 
+        var passwordField = document.getElementById("psw"); 
+        var confirmPasswordField = document.getElementById("re-psw");
+        
+        if (passwordField.type === "password") { 
+            passwordField.type = "text"; 
+            confirmPasswordField.type = "text"; 
+        } else { 
+            passwordField.type = "password"; 
+            confirmPasswordField.type = "password"; 
+        } 
+      }
+
       function closeForm() { 
-        const formContainer = document.getElementById('form-container');
-        formContainer.innerHTML = "";
-        document.getElementById("inscription-btn").style.display = "block";
+          console.log("Close form function called");
+          const formContainer = document.getElementById('form-container'); 
+          formContainer.innerHTML = ""; 
+          document.getElementById("inscription-btn").style.display = "block"; 
       }
 
-      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      const pswPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d@$!%*?&]{10,}$/;
-
-      document.getElementById("inscription").addEventListener("submit", function(event) {
-        // Champs d'erreur vide par défaut
-        document.getElementById('erreurEmail').textContent = '';
-        document.getElementById('erreurPSW').textContent = '';
-
-        let isValid = true;
-
-        //Valeur du champ courriel
-        const email = document.getElementById('email').value;
-        // Message d'erreur si le champ est vide
-        if (email.trim() === '') {
-          event.preventDefault();
-          document.getElementById('erreurEmail').textContent = "Le courriel est requis.";
-          isValid = false;
-        } 
-        // Message d'erreur  si le courriel ne correspond pas au patron
-        else if (!emailPattern.test(email)) {
-          event.preventDefault();
-          document.getElementById('erreurEmail').textContent = "Le courriel est invalide.";
-          isValid = false;
-        }
-
-        //Valeur du champ mot de passe
-        const password1 = document.getElementById('psw').value;
-        const password2 = document.getElementById('re-psw').value;
-        // Message d'erreur si le champ est vide
-        if (password1.trim() === '') {
-          event.preventDefault();
-          document.getElementById('erreurPSW').textContent = "Le mot de passe est requis.";
-          isValid = false;
-        } 
-        // Message d'erreur  si le courriel ne correspond pas au patron
-        else if (!pswPattern.test(password1)) {
-          event.preventDefault();
-          document.getElementById('erreurPSW').textContent = "Le mot de passe est invalide.";
-          isValid = false;
-        }
-        // Message d'erreur si les deux champs de mot de passe ne sont pas identiques
-        else if (password1 !== password2) {
-          event.preventDefault();
-          document.getElementById('erreurPSW').textContent = "Les mots de passe ne sont pas identiques";
-          isValid = false;
-        }
-
-        if  (isValid) {
-          // Si tout est valide, on envoie le formulaire
-          document.getElementById("inscription").submit();
-          alert("Le formulaire  a été envoyé avec succès.");
-        }
-      });
     </script>
   </body>
 </html>

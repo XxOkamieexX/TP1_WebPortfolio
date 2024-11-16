@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>galerie</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="several-mono">
+        <div class="container">
+            <header>
+                <!-- Ceci est la navigation -->
+                <nav>
+                    <div><a href="page404.html" class="link">Logo.</a></div>
+                    <ul>
+                        <li><a href="index.html" class="link">Accueil.</a></li>
+                        <li><a href="a-propos.html" class="link">À propos.</a></li>
+                        <li><a href="projets.html" class="link">Projets.</a></li>
+                        <li><a href="contact.html" class="link">Contact.</a></li>
+                    </ul>
+                </nav>
+                <hr class="dotted">
+            </header>
+            <main class="content-galerie">
+                 <!-- Ceci st le contenu du diaporamma-->
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 6</div>
+                        <img src="images/ascii-art-cat.png" style="width:100%">
+                        <div class="text">Chat</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 6</div>
+                        <img src="images/ascii-art-computer.png" style="width:100%">
+                        <div class="text">Ordinateur</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 6</div>
+                        <img src="images/ascii-art-dino.png" style="width:100%">
+                        <div class="text">Dinosaure</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 6</div>
+                        <img src="images/ascii-art-dog.png" style="width:100%">
+                        <div class="text">Chien</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">5 / 6</div>
+                        <img src="images/ascii-art-fish.png" style="width:100%">
+                        <div class="text">Poisson</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">6 / 6</div>
+                        <img src="images/ascii-art-unicorn.png" style="width:100%">
+                        <div class="text">Licorne</div>
+                    </div>
+                    <!-- Boutons précédent et suivant -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <!-- Les points -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+                <!--Ceci est la gallerie de photo-->
+                <div class="gallery">
+                    <img src="images/ascii-art-cat.png" alt="Chat" class="gallery-image">
+                    <img src="images/ascii-art-computer.png" alt="Ordinateur" class="gallery-image">
+                    <img src="images/ascii-art-dino.png" alt="Dinosaure" class="gallery-image">
+                    <img src="images/ascii-art-dog.png" alt="Chien" class="gallery-image">
+                    <img src="images/ascii-art-fish.png" alt="Poisson" class="gallery-image">
+                    <img src="images/ascii-art-unicorn.png" alt="Licorne" class="gallery-image">
+                </div>
+                <!--Ceci est l'affichage des photos-->
+                <div id="imageModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="zoomedImage">
+                </div>
+            </main>
+            <footer class="jtmekito">
+                <p>Tous les droit réservés @CocottePinotte</p>
+            </footer>
+        </div>
+        <script>
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('zoomedImage');
+            const closeBtn = document.querySelector('.close');
+
+            document.querySelectorAll('.gallery-image').forEach(image => {
+            image.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = image.src;
+            });
+            });
+
+            closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            });
+
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+            showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+            showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            }
+
+            setInterval(() => {
+                plusSlides(1);
+            }, 2000);
+        </script>
+    </body>
+</html>

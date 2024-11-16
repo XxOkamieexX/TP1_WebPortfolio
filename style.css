@@ -571,7 +571,13 @@
         height: 200px;
     }
 
-    .error{color: red; font-size: 0.8em; margin-top: 5px;}
+    /* Ceci est le style de la petite video dans la page projet */
+    .video{
+        margin-left: 50px;
+    }
+
+    .error { color: red; font-size: 0.8em; margin-top: 5px; }
+    .valid { color: green; font-size: 0.8em; margin-top: 5px; }
 }
 
 

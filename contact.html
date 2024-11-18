@@ -93,6 +93,10 @@
       //Ajouter un écouteur d'événement sur le formulaire
 
       formulaire.addEventListener('submit', function(event){
+
+        //Empêche la soumission d'un formulaire si le champ est vide 
+        let formisValid = true;
+
         // réinitialiser les messages d'erreurs
         nameError.textContent = '';
 
@@ -107,7 +111,13 @@
           nameError.textContent = "Veuillez saisir votre nom"
 
           return false;
-        }  
+        } 
+        
+        function removeErrorOnInput(event){
+          const input = event.target
+          const nameError = document.getElementById(input.id + "Error");
+        }
+
 
         if(prenomInput.value.trim() === ''){
           // empêcher l'envoi du formulaire

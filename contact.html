@@ -19,7 +19,7 @@
             <li><a href="contact.html" class="link">Contact.</a></li>
           </ul>
         </nav>
-        <hr class="dotted" />
+          <hr class="dotted" />
       </header>
       <main>
         <h2 class="titre-contact">Contactez-nous</h2>
@@ -28,36 +28,34 @@
           <section>
             <h3 class="titre-form">Formulaire de contact</h3>
             <form id="form-contact">
-              <fieldset style="width: 150px">
-                <div class="font-form">
-
+              <fieldset style ="width: 300px; height: auto ;"> 
+                <div class="jtmekito">
+                  <!-- section prénom -->
                   <label for="prenom"> Prénom </label><br />
                   <input type="text" id="prenom" name="prenom"/>
                   <br />
                   <span id="prenomError" class="error"></span>
-                  <br /><br />
-
+                  <br />
+                  <!-- section nom-->
                   <label for="name"> Nom </label><br />
                   <input type="text" id="name" name="name"/>
                   <br />
                   <span id="nameError" class="error"></span>
-                  <br /><br />
-
+                  <br />
+                  <!-- section email-->
                   <label for="email">E-mail </label><br />
                   <input type="email" id="email" name="email"/>
                   <br />
                   <span id="emailError" class="error"></span>
-                  <br /><br />
-
+                  <br />
+                  <!-- section message-->
                   <label for="message">Message personnalisé (facultatif) </label ><br />
-                  <textarea style="width: 300px; height: 150px"></textarea>
-
-                  <a href="merci.html">
-                  <input type="submit">
-                  </a>
-                  
-                  <!-- <button onclick="window.location.href='merci.html';" id="submit"> Soumettre </button> -->
-
+                  <textarea style="width: 300px; margin: 5px; height: auto;"></textarea>
+                  <span id="FormValid" class="valid" style="color: green;"></span>
+                  <div class="button-form"> 
+                    <button type="button" id="verifyButton">Vérifier le formulaire</button>
+                    <button type="button" id="redirectButton" style="display: none;" onclick="window.location.href='merci.html'">Envoyer</button>
+                  </div>
                 </div>
               </fieldset>
             </form>
@@ -84,69 +82,57 @@
     </div>
     <script>
       // sélectionner le formulaire et le champ input 
-      const formulaire = document.getElementById('form-contact');
-      const nameInput = document.getElementById('name');
-      const nameError = document.getElementById('nameError');
-
-      const prenomInput = document.getElementById('prenom')
+      const formulaire = document.getElementById('form-contact'); 
+      const nameError = document.getElementById('nameError');   
       const prenomError = document.getElementById('prenomError');
-
-      const emailInput = document.getElementById('email')
       const emailError = document.getElementById('emailError')
+      const messageError = document.getElementById('messageError')
+      const FormValid = document.getElementById('FormValid')
 
-      //Ajouter un écouteur d'événement sur le formulaire
+      // expression régulière
+      var regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      var regexNom = /^[a-zA-Z]+( [a-zA-Z]+)*$/
+      var regexPrenom = /^[a-zA-Z]+( [a-zA-Z]+)*$/
 
-      formulaire.addEventListener('submit', function(event){
+     // Ajouter un écouteur d'événement sur le bouton de vérification
+      document.getElementById('verifyButton').addEventListener('click', function() {
+      // Réinitialiser les messages d'erreurs
+      nameError.textContent = '';
+      prenomError.textContent = '';
+      emailError.textContent = '';
 
+      let isValid = true; // Flag to check if the form is valid
 
-        // réinitialiser les messages d'erreurs
-        nameError.textContent = '';
+     // Vérifier si le champ 'name' est vide
+      const nameInput = document.getElementById('name');
+      if (nameInput.value.trim() === '') {
+        nameError.textContent = "Veuillez saisir votre nom";       
+        isValid = false; // Set flag to false
+      }  
 
+      const prenomInput = document.getElementById('prenom');
+      if (prenomInput.value.trim() === '') {
+        prenomError.textContent = "Veuillez saisir votre prénom";    
+        isValid = false; // Set flag to false
+      }
 
+      // Valeur du champ email
+      const emailInput = document.getElementById('email');
+      if (emailInput.value.trim() === '') {
+        emailError.textContent = "Veuillez saisir votre e-mail";
+        isValid = false; 
+      }
+      else if (!regexEmail.test(emailInput.value)) {
+        emailError.textContent = "Adresse e-mail non valide";
+        isValid = false;
+      }
 
-        // expression régulière
-        var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        var regexNom = /^[A-Za-zÀ-ÿ' -]+$/;
-     
-
-        //vérifier si le champ 'name' est vide
-
-        if(nameInput.value.trim() === ''){
-          // empêcher l'envoi du formulaire¸
-
-          event.preventDefault();
-
-          // Afficher un message d'erreur
-          nameError.textContent = "Veuillez saisir votre nom"
-
-          
-        }  
-
-
-        if(prenomInput.value.trim() === ''){
-          // empêcher l'envoi du formulaire
-
-          event.preventDefault()
-
-          // Afficher un message d'erreur
-          prenomError.textContent = "Veuillez saisir votre prénom"
-
-          
-        }
-
-        
-        if(emailInput.value.trim() === ''){
-          // empêcher l'envoi du formulaire
-
-          event.preventDefault()
-
-          // Afficher un message d'erreur
-          emailError.textContent = "Veuillez saisir votre e-mail"
-
-          
-        }
-
-      });             
+      if (isValid) {
+        FormValid.textContent = "Formulaire valide";
+        FormValid.style.color = "green";
+        document.getElementById('redirectButton').style.display = 'block'; // Show the redirect button
+      }
+      });   
     </script>
   </body>
 </html>

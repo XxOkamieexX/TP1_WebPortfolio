@@ -359,8 +359,7 @@
         left: 50%;
         background-color: white;
         border: dotted;
-        color: black
-        padding: 10px;
+        color: black;
     }
 
     .galerie-btn a{
@@ -561,10 +560,6 @@
         font-family: "Several Mono";
     }
 
-    .font-form{
-        font-family: "JT Mekito";
-    }
-
     .contenu-droite{
         font-family: "JT Mekito";
         padding-top: 20%;
@@ -578,6 +573,17 @@
 
     .error { color: red; font-size: 0.8em; margin-top: 5px; }
     .valid { color: green; font-size: 0.8em; margin-top: 5px; }
+
+    .form-contact{
+        height: 700px;
+    }
+
+    .button-form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
 }
 
 

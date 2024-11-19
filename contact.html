@@ -51,7 +51,12 @@
 
                   <label for="message">Message personnalisé (facultatif) </label ><br />
                   <textarea style="width: 300px; height: 150px"></textarea>
-                  <button onclick="window.location.href='merci.html';" id="submit"> Soumettre </button>
+
+                  <a href="merci.html">
+                  <input type="submit">
+                  </a>
+                  
+                  <!-- <button onclick="window.location.href='merci.html';" id="submit"> Soumettre </button> -->
 
                 </div>
               </fieldset>
@@ -79,7 +84,6 @@
     </div>
     <script>
       // sélectionner le formulaire et le champ input 
-
       const formulaire = document.getElementById('form-contact');
       const nameInput = document.getElementById('name');
       const nameError = document.getElementById('nameError');
@@ -94,55 +98,53 @@
 
       formulaire.addEventListener('submit', function(event){
 
-        //Empêche la soumission d'un formulaire si le champ est vide 
-        let formisValid = true;
 
         // réinitialiser les messages d'erreurs
         nameError.textContent = '';
+
+
+
+        // expression régulière
+        var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var regexNom = /^[A-Za-zÀ-ÿ' -]+$/;
+     
 
         //vérifier si le champ 'name' est vide
 
         if(nameInput.value.trim() === ''){
           // empêcher l'envoi du formulaire¸
 
-          event.preventDefault('form-contact');
+          event.preventDefault();
 
           // Afficher un message d'erreur
           nameError.textContent = "Veuillez saisir votre nom"
 
-          return false;
-        } 
-        
-        function removeErrorOnInput(event){
-          const input = event.target
-          const nameError = document.getElementById(input.id + "Error");
-        }
+          
+        }  
 
 
         if(prenomInput.value.trim() === ''){
           // empêcher l'envoi du formulaire
 
-          event.preventDefault('form-contact')
+          event.preventDefault()
 
           // Afficher un message d'erreur
           prenomError.textContent = "Veuillez saisir votre prénom"
 
-          return false;
+          
         }
 
         
         if(emailInput.value.trim() === ''){
           // empêcher l'envoi du formulaire
 
-          event.preventDefault('form-contact')
+          event.preventDefault()
 
           // Afficher un message d'erreur
           emailError.textContent = "Veuillez saisir votre e-mail"
 
-          return false;
+          
         }
-
-        
 
       });             
     </script>

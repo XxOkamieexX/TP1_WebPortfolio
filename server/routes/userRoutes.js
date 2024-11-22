@@ -1,7 +1,11 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { findAllusers, createUser, editById, removeUserById} =
-require('../controllers/userController');
+const {
+  findAllUsers,
+  createUser,
+  editById,
+  removeUserById,
+} = require("../controllers/userController");
 
 // Route pour récupérer tous les utilisateurs
 router.get("/users", findAllUsers);

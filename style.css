@@ -356,10 +356,15 @@
     .galerie-btn{
         position: absolute;
         top: 1000px;
-        left: 50%;
+        left: 40%;
         background-color: white;
         border: dotted;
         color: black;
+    }
+
+    .galerie-btn:hover{
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
     }
 
     .galerie-btn a{

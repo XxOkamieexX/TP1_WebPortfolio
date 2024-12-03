@@ -2,7 +2,7 @@ const User = require("../models/userModel");
 // Fonction pour recuperer tous les utilisateurs
 exports.findAllUsers = async (req, res) => {
   try {
-    const users = await User.find().sort([["fullName", "ascending"]]);
+    const allUsers = await User.find().sort([["email", "ascending"]]);
     res.status(200).json({ message: "All users:", allUsers });
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch users" });
@@ -13,8 +13,8 @@ exports.findAllUsers = async (req, res) => {
 // Fonction pour ajouter un utilisateur
 exports.createUser = async (req, res) => {
   try {
-    const { fullName, email, password } = req.body;
-    const newUser = await User.create({ fullName, email, password });
+    const { email, password } = req.body;
+    const newUser = await User.create({ email, password });
     res.status(201).json({ message: "User created successfully!", newUser });
   } catch (err) {
     res.status(500).json({ error: "Failed to create user" });

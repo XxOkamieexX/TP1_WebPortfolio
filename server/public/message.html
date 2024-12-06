@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Management</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Message Management</legend>
+        <form id="msgForm">
+            <input type="hidden" id="messageId"/>
+            <input type="text" id="firstName" placeholder="First Name"/>
+            <input type="text" id="lastName" placeholder="Last Name"/>
+            <input type="email" id="email" placeholder="Email"/>
+            <iput type="text" id="message" placeholder="Message"/>
+            <button type="submit">Add Message</button>
+        </form>
+    </fieldset>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody id="msgTableBody">
+        <!--Les messages seront ajoutés ajoutés ici dynamiquement-->
+        </tbody>
+    </table>
+    <script src="msgScript.js"></script>
+</body>
+</html>

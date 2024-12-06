@@ -22,28 +22,46 @@
  margin: 5px 0;
  }
  
-<body>
- <h1>User Management</h1>
- <form id="userForm">
- <input type="hidden" id="userId" />
- <input type="text" id="fullName" placeholder="Full Name" required />
- <input type="email" id="email" placeholder="Email" required />
- <input type="password" id="password" placeholder="Password" required />
- <button type="submit">Add User</button>
- </form>
-<table>
- <thead>
- <tr>
-<th>Full Name</th>
- <th>Email</th>
+ table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 20px;
+ }
+ th, td {
+ border: 1px solid #ddd;
+ padding: 10px;
+ text-align: left;
+ }
+ th {
+ background-color: #f4f4f4;
+ }
+ </style>
+</head>
 
- </tr>
- </thead>
- <tbody id="userTableBody">
- <!-- Les utilisateurs seront ajoutés ici dynamiquement -->
- </tbody>
- </table>
- <script src="script.js"></script>
-</body>
-</html>
+<body>
+     <h1>User Management</h1>
+     <form id="userForm">
+     <input type="hidden" id="userId" />
+     <input type="text" id="fullName" placeholder="Full Name" required />
+     <input type="email" id="email" placeholder="Email" required />
+     <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Add User</button>
+     </form>
+    <table>
+     <thead>
+    <tr>
+     <th>Full Name</th>
+     <th>Email</th>
+     
+     </tr>
+     </thead>
+     <tbody id="userTableBody">
+     <!-- Les utilisateurs seront ajoutés ici dynamiquement -->
+     </tbody>
+     </table>
+     <script src="script.js"></script>
+    </body>
+    </html>
+    
+
 

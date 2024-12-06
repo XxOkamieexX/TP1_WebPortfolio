@@ -20,8 +20,6 @@ app.use("/api", userRoutes);
 app.use("/api", msgRoutes);
 app.use("/api", miscRoutes);
 
-// Servir les fichiers statiques
-app.use(express.static(path.join(__dirname, "public")));
 
 // Démarrer le serveur
 const PORT = process.env.PORT || 5200;

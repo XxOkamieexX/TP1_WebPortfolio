@@ -5,6 +5,7 @@ const fullNameInput = document.getElementById("fullName");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const userTableBody = document.getElementById("userTableBody");
+
 // Charger tous les utilisateurs
 async function fetchUsers() {
 const res = await fetch(apiBase);
@@ -40,15 +41,45 @@ form.addEventListener("submit", async (e) => {
      headers: { "Content-Type": "application/json" },
      body: JSON.stringify(userData),
      });
-        } else {
-            // Création
-            await fetch(apiBase, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(userData),
-            });
-        }
-        resetForm();
-        fetchUsers();
+     } else {
+     // Création
+     await fetch(apiBase, {
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify(userData),
+     });
+     }
+     resetForm();
+     fetchUsers();
     });
+
+    // Remplir le formulaire pour l'édition
+
+async function editUser(id) {
+      const res = await fetch(`${apiBase}/${id}`);
+      const user = await res.json();
+      userIdInput.value = user._id;
+      fullNameInput.value = user.fullName;
+      emailInput.value = user.email;
+      passwordInput.value = ""; // Réinitialiser le mot de passe
+     }
+     // Supprimer un utilisateur
+     
+     async function deleteUser(id) {
+      if (confirm("Are you sure you want to delete this user?")) {
+      await fetch(`${apiBase}/${id}`, { method: "DELETE" });
+      fetchUsers();
+      }
+     }
+     // Réinitialiser le formulaire
+     
+     function resetForm() {
+      userIdInput.value = "";
+      fullNameInput.value = "";
+      emailInput.value = "";
+      passwordInput.value = "";
+     }
+     // Charger les utilisateurs au chargement de la page
+     fetchUsers();
+     
     

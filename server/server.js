@@ -20,7 +20,6 @@ app.use("/api", userRoutes);
 app.use("/api", msgRoutes);
 app.use("/api", miscRoutes);
 
-
 // Démarrer le serveur
 const PORT = process.env.PORT || 5200;
 app.listen(PORT, () => {

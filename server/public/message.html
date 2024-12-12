@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Management</title>
-</head>
-<body>
-    <fieldset>
-        <legend>Message Management</legend>
-        <form id="msgForm">
-            <input type="hidden" id="messageId"/>
-            <input type="text" id="firstName" placeholder="First Name"/>
-            <input type="text" id="lastName" placeholder="Last Name"/>
-            <input type="email" id="email" placeholder="Email"/>
-            <textarea type="text" id="message" placeholder="Message"></textarea>
-            <button id="submit-btn" type="submit">Add Message</button>
-        </form>
-    </fieldset>
-    <table>
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Message</th>
-            </tr>
-        </thead>
-        <tbody id="msgTableBody">
-        <!--Les messages seront ajoutés ajoutés ici dynamiquement-->
-        </tbody>
-    </table>
-    <style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 20px;
-            width: 100vh;
-        }
-        form{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        fieldset{
-            width: 100%;
-        }
-        legend{
-            font-size: 24px;
-        }
-        input{
-            margin: 5px 0;
-            padding: 10px;
-        }
-        textarea{
-            margin: 5px 0;
-            padding: 10px;
-        }
-        button{
-            padding: 10px 20px;
-            margin: 5px 0;
-            width: 200px;
-        }
-        table{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td{
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th{
-            background-color: #f4f4f4;
-        }
-    </style>
-    <script src="msgScript.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Message Management</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Message Management</legend>
+            <form id="msgForm">
+                <input type="hidden" id="messageId"/>
+                <input type="text" id="firstName" placeholder="First Name"/>
+                <input type="text" id="lastName" placeholder="Last Name"/>
+                <input type="email" id="email" placeholder="Email"/>
+                <textarea type="text" id="message" placeholder="Message"></textarea>
+                <button id="submit-btn" type="submit">Add Message</button>
+                <button type="button" onclick="resetForm()">Reset</button>
+            </form>
+        </fieldset>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody id="msgTableBody">
+            <!--Les messages seront ajoutés ajoutés ici dynamiquement-->
+            </tbody>
+        </table>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 20px;
+                width: 100vh;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            fieldset{
+                width: 100%;
+            }
+            legend{
+                font-size: 24px;
+            }
+            input{
+                margin: 5px 0;
+                padding: 10px;
+            }
+            textarea{
+                margin: 5px 0;
+                padding: 10px;
+            }
+            button{
+                padding: 10px 20px;
+                margin: 5px 0;
+                width: 200px;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td{
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+            th{
+                background-color: #f4f4f4;
+            }
+        </style>
+        <script src="msgScript.js"></script>
+    </body>
 </html>

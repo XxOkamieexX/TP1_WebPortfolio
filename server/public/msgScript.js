@@ -10,19 +10,23 @@ const msgInput = document.getElementById("message");
 async function fetchMessages() {
     const res = await fetch(apiBase);
     const msg = await res.json();
+
     msgTableBody.innerHTML = "";
-    const valuesArray = Object.values(msg)[1];
-    console.log("Tableau:", valuesArray)
-    for(i=0;i<valuesArray.length;i++){
+
+    msg.forEach((msg) =>{
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${valuesArray[i].firstName}</td>
-            <td>${valuesArray[i].lastName}</td>
-            <td>${valuesArray[i].email}</td>
-            <td>${valuesArray[i].message}</td>
+            <td>${msg.firstName}</td>
+            <td>${msg.lastName}</td>
+            <td>${msg.email}</td>
+            <td>${msg.message}</td>
+            <td>
+                <button onclick="editMessage('${message._id}')">Modifier</button>
+                <button onclick="deleteMessage('${message._id}')">Supprimer</button>
+            </td>
         `;
         msgTableBody.appendChild(row);
-    }
+    });
 }
 
 //Ajouter ou mettre à jour un utilisateur
@@ -39,12 +43,19 @@ form.addEventListener("submit", async (e) => {
         await fetch(`${apiBase}/${msgIdInput.value}`, {
             method: "PUT",
             headers: {"Content-type": "application/json"},
-            
+            body: JSON.stringify(msgData),
+        });
+    } else {
+        //Ajout
+        await fetch(apiBase, {
+            method: "POST",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify(msgData),
         });
     }
     resetForm();
     fetchMessages();
-})
+});
 
 // Remplir le formulaire pour l'édition
 async function editMessage(id) {
@@ -54,13 +65,18 @@ async function editMessage(id) {
     firstNameInput.value = msg.firstName;
     lastNameInput.value = msg.lastName;
     emailInput.value = msg.email;
-    msgInput.value = ""; // Édition du message
+    msgInput.value = msg.msg; // Édition du message
 }
 
 // Supprimer un message
 async function deleteMessage(id) {
     if (confirm("Voulez-vous vraiment supprimer ce message ?")) {
-        await fetch(`${apiBase}/${id}`, { method: "DELETE" });
+        const res = await fetch(`${apiBase}/${id}`, { method: "DELETE" });
+        if (res.ok) {
+            alert("Message supprimé avec succès !");
+        } else {
+            alert("Une erreur est survenue lors de la suppression.");
+        }
         fetchMessages();
     }
 }

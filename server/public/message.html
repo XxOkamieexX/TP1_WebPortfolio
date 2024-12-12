@@ -13,8 +13,8 @@
             <input type="text" id="firstName" placeholder="First Name"/>
             <input type="text" id="lastName" placeholder="Last Name"/>
             <input type="email" id="email" placeholder="Email"/>
-            <iput type="text" id="message" placeholder="Message"/>
-            <button type="submit">Add Message</button>
+            <textarea type="text" id="message" placeholder="Message"></textarea>
+            <button id="submit-btn" type="submit">Add Message</button>
         </form>
     </fieldset>
     <table>
@@ -30,6 +30,51 @@
         <!--Les messages seront ajoutés ajoutés ici dynamiquement-->
         </tbody>
     </table>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            width: 100vh;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        fieldset{
+            width: 100%;
+        }
+        legend{
+            font-size: 24px;
+        }
+        input{
+            margin: 5px 0;
+            padding: 10px;
+        }
+        textarea{
+            margin: 5px 0;
+            padding: 10px;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 5px 0;
+            width: 200px;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td{
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th{
+            background-color: #f4f4f4;
+        }
+    </style>
     <script src="msgScript.js"></script>
 </body>
 </html>

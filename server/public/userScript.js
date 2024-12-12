@@ -7,13 +7,14 @@
     const userTableBody = document.getElementById("userTableBody");
 
     // Charger tous les utilisateurs
-    async function fetchUsers() {
-    const res = await fetch(apiBase);
-    const users = await res.json();
-    userTableBody.innerHTML = "";
-    const valuesArray = Object.values(users)[1];
-    console.log("Tableau: ", valuesArray)
-    for(i=0;i<valuesArray.length;i++)
+    async function fetchUsers() 
+    {
+        const res = await fetch(apiBase);
+        const users = await res.json();
+        userTableBody.innerHTML = "";
+        const valuesArray = Object.values(users)[1];
+        console.log("Tableau: ", valuesArray)
+        for(i=0;i<valuesArray.length;i++)
 
     {
         const row = document.createElement("tr");
@@ -25,44 +26,45 @@
     };
     }
 
-    // Ajouter ou mettre à jour un utilisateur
+     // Ajouter ou mettre à jour un utilisateur
 
-    form.addEventListener("submit", async (e) => {
+     form.addEventListener("submit", async (e) => {
      e.preventDefault();
      const userData = {
      fullName: fullNameInput.value,
      email: emailInput.value,
      password: passwordInput.value,
-     };
+    };
      if (userIdInput.value) {
      // Mise à jour
      await fetch(`${apiBase}/${userIdInput.value}`, {
      method: "PUT",
      headers: { "Content-Type": "application/json" },
      body: JSON.stringify(userData),
-     });
-     } else {
+    });
+    } else {
      // Création
      await fetch(apiBase, {
      method: "POST",
      headers: { "Content-Type": "application/json" },
      body: JSON.stringify(userData),
-     });
-     }
+    });
+    }
      resetForm();
      fetchUsers();
     });
 
-    // Remplir le formulaire pour l'édition
+     // Remplir le formulaire pour l'édition
 
-      async function editUser(id) {
+      async function editUser(id) 
+    {
       const res = await fetch(`${apiBase}/${id}`);
       const user = await res.json();
       userIdInput.value = user._id;
       fullNameInput.value = user.fullName;
       emailInput.value = user.email;
       passwordInput.value = ""; // Réinitialiser le mot de passe
-     }
+    }
      // Supprimer un utilisateur
      
      async function deleteUser(id) {
@@ -70,28 +72,26 @@
      await fetch(`${apiBase}/${id}`, { method: "DELETE" });
      fetchUsers();
     }
-     }
+    }
      // Réinitialiser le formulaire
      
-     function resetForm() {
+     function resetForm() 
+    {
       userIdInput.value = "";
       fullNameInput.value = "";
       emailInput.value = "";
       passwordInput.value = "";
-     }
+    }
      // Charger les utilisateurs au chargement de la page
      fetchUsers();
 
-     function afficherUtilisateurs( ) {
-        fetch("http://localhost:3000/api/allUser")                
-        .then((response) => response.json())
-        .then(function(data) {
-        //affichage des données
-        console.log(data);
-        })
-        .catch(function(error) {
-        console.log(error);   });
-        }
-        
-     
-    
+     function afficherUtilisateurs() {
+     fetch("http://localhost:5200/api/allUser")                
+     .then((response) => response.json())
+     .then(function(data) {
+     //affichage des données
+     console.log(data);
+     })
+     .catch(function(error) {
+     console.log(error); });
+    }

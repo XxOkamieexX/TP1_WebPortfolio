@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cookie Management</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Cookie Management</legend>
+            <form id="cookieForm">
+                <input type="hidden" id="cookieId"/>
+                <input type="checkbox" id="cookie"/>
+                <button id="submit-btn" type="submit">Ajouter le consentement</button>
+            </form>
+        </fieldset>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cookies</th>
+                </tr>
+            </thead>
+            <tbody id="cookieTableBody">
+            <!--Les cookies seront ajoutés ajoutés ici dynamiquement-->
+            </tbody>
+        </table>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 20px;
+                width: 100vh;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            fieldset{
+                width: 100%;
+            }
+            legend{
+                font-size: 24px;
+            }
+            input{
+                margin: 5px 0;
+                padding: 10px;
+            }
+            input[type="checkbox" i]{
+                width: 30px;
+                height: 30px;
+            }
+            button{
+                padding: 10px 20px;
+                margin: 5px 0;
+                width: 200px;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td{
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+            th{
+                background-color: #f4f4f4;
+            }
+        </style>
+        <script src="miscScript.js"></script>
+    </body>
+</html>
